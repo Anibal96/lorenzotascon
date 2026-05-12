@@ -1,0 +1,463 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: #1a1a1a;
+  color: #f0f0f0;
+  line-height: 1.6;
+}
+
+.app {
+  min-height: 100vh;
+}
+
+/* Header */
+.header {
+  background: linear-gradient(180deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.7) 100%);
+  padding: 2rem;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+}
+
+.header-content h1 {
+  font-size: 2.5rem;
+  font-weight: 300;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 0.3rem;
+}
+
+.tagline {
+  font-size: 1rem;
+  color: #aaa;
+  letter-spacing: 0.2em;
+  margin-bottom: 1.5rem;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.nav a {
+  color: #ddd;
+  text-decoration: none;
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: color 0.3s;
+  padding: 0.5rem 0;
+  border-bottom: 2px solid transparent;
+}
+
+.nav a:hover {
+  color: #fff;
+  border-bottom-color: #4a9;
+}
+
+/* Hero */
+.hero {
+  height: 70vh;
+  background: linear-gradient(135deg, #1a3a2f 0%, #0d1f1a 50%, #1a2a1a 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('/fotos/Paisajes%20Diurnos/Procesadas2014_D3S8549.JPG') center/cover;
+  opacity: 0.3;
+}
+
+.hero-overlay {
+  position: relative;
+  z-index: 1;
+  padding: 2rem;
+}
+
+.hero-overlay h2 {
+  font-size: 3rem;
+  font-weight: 300;
+  margin-bottom: 1rem;
+  letter-spacing: 0.05em;
+}
+
+.hero-overlay p {
+  font-size: 1.2rem;
+  color: #aaa;
+  letter-spacing: 0.1em;
+}
+
+/* Gallery */
+.gallery-section {
+  padding: 4rem 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.gallery-section h2 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 300;
+  margin-bottom: 2rem;
+  letter-spacing: 0.1em;
+}
+
+.filters {
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.filters button {
+  background: transparent;
+  border: 1px solid #444;
+  color: #aaa;
+  padding: 0.5rem 1.2rem;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  transition: all 0.3s;
+}
+
+.filters button:hover {
+  border-color: #4a9;
+  color: #fff;
+}
+
+.filters button.active {
+  background: #4a9;
+  border-color: #4a9;
+  color: #fff;
+}
+
+.filters .count {
+  opacity: 0.7;
+  font-size: 0.8em;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.photo-card {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  aspect-ratio: 4/3;
+  background: #222;
+}
+
+.photo-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+
+.photo-card:hover img {
+  transform: scale(1.08);
+}
+
+.photo-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.5rem;
+  background: linear-gradient(transparent, rgba(0,0,0,0.8));
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.photo-card:hover .photo-overlay {
+  opacity: 1;
+}
+
+.photo-overlay span {
+  display: block;
+  font-size: 1rem;
+  margin-bottom: 0.3rem;
+}
+
+.photo-overlay small {
+  color: #aaa;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* About */
+.about {
+  background: #222;
+  padding: 4rem 2rem;
+}
+
+.about-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.about h2 {
+  font-size: 2rem;
+  font-weight: 300;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.1em;
+}
+
+.about p {
+  color: #bbb;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+.tags {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.tag {
+  background: #333;
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  color: #aaa;
+}
+
+/* Contact */
+.contact {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.contact h2 {
+  font-size: 2rem;
+  font-weight: 300;
+  margin-bottom: 1rem;
+  letter-spacing: 0.1em;
+}
+
+.contact p {
+  color: #aaa;
+  margin-bottom: 1.5rem;
+}
+
+.email-link {
+  display: inline-block;
+  color: #4a9;
+  text-decoration: none;
+  font-size: 1.2rem;
+  border: 2px solid #4a9;
+  padding: 0.8rem 2rem;
+  border-radius: 999px;
+  transition: all 0.3s;
+}
+
+.email-link:hover {
+  background: #4a9;
+  color: #fff;
+}
+
+/* Footer */
+.footer {
+  background: #111;
+  padding: 2rem;
+  text-align: center;
+  color: #666;
+  font-size: 0.85rem;
+}
+
+/* Lightbox */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.95);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 2rem;
+  cursor: pointer;
+}
+
+.lightbox img {
+  max-width: 90vw;
+  max-height: 75vh;
+  object-fit: contain;
+  border-radius: 4px;
+  cursor: default;
+}
+
+.lightbox p {
+  margin-top: 1rem;
+  color: #ccc;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.lightbox p small {
+  color: #888;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 2rem;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 2.5rem;
+  cursor: pointer;
+  z-index: 10;
+  line-height: 1;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.lightbox-close:hover {
+  opacity: 1;
+}
+
+.lightbox-prev,
+.lightbox-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.1);
+  border: none;
+  color: #fff;
+  font-size: 3rem;
+  cursor: pointer;
+  z-index: 10;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+
+.lightbox-prev:hover,
+.lightbox-next:hover {
+  opacity: 1;
+  background: rgba(255,255,255,0.2);
+}
+
+.lightbox-prev {
+  left: 1rem;
+}
+
+.lightbox-next {
+  right: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header {
+    padding: 0.8rem 1rem;
+  }
+
+  .header-content h1 {
+    font-size: 1.3rem;
+    letter-spacing: 0.08em;
+  }
+
+  .tagline {
+    font-size: 0.75rem;
+    margin-bottom: 0.6rem;
+    letter-spacing: 0.1em;
+  }
+  
+  .hero-overlay h2 {
+    font-size: 2rem;
+  }
+  
+  .nav {
+    gap: 0.8rem;
+  }
+
+  .nav a {
+    font-size: 0.7rem;
+    padding: 0.2rem 0;
+  }
+  
+  .gallery {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+
+  .lightbox img {
+    max-width: 95vw;
+    max-height: 65vh;
+  }
+
+  .lightbox-prev,
+  .lightbox-next {
+    font-size: 2rem;
+    padding: 0.3rem 0.7rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 0.6rem 0.8rem;
+  }
+
+  .header-content h1 {
+    font-size: 1.1rem;
+  }
+
+  .tagline {
+    font-size: 0.65rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .nav {
+    gap: 0.5rem;
+  }
+
+  .nav a {
+    font-size: 0.65rem;
+    padding: 0.15rem 0;
+  }
+
+  .filters {
+    gap: 0.4rem;
+  }
+  
+  .filters button {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.75rem;
+  }
+
+  .gallery-section {
+    padding: 2rem 1rem;
+  }
+}
