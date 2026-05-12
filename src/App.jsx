@@ -4,6 +4,8 @@ import './App.css'
 
 const allCategories = ["Todas", ...categories]
 
+const showCat = (cat) => cat.replace(/-/g, ' ')
+
 function App() {
   const [filter, setFilter] = useState("Todas")
   const [lightbox, setLightbox] = useState(null)
@@ -127,7 +129,7 @@ function App() {
               className={filter === cat ? 'active' : ''}
               onClick={() => setFilter(cat)}
             >
-              {cat}
+              {showCat(cat)}
               {cat !== "Todas" && <span className="count"> ({categoryCounts[cat] || 0})</span>}
             </button>
           ))}
@@ -138,7 +140,7 @@ function App() {
               <img src={photo.thumb} alt={photo.title} loading="lazy" />
               <div className="photo-overlay">
                 <span>{photo.title}</span>
-                <small>{photo.category}</small>
+                <small>{showCat(photo.category)}</small>
               </div>
             </div>
           ))}
@@ -187,7 +189,7 @@ function App() {
             draggable={false}
           />
           <button className="lightbox-next" onClick={(e) => { e.stopPropagation(); goNext() }} aria-label="Siguiente">›</button>
-          <p>{lightbox.title} <small>— {lightbox.category}</small></p>
+          <p>{lightbox.title} <small>— {showCat(lightbox.category)}</small></p>
         </div>
       )}
     </div>
